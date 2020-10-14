@@ -56,10 +56,10 @@ app.get("/posts/:post",(req,res)=>{
     if(post.title ===req.params.post)
     {console.log("correct")}
     else{
-      console.log(inccorrect)
+      console.log("inccorrect")
     } 
   });
-  console.log(req.params.post);
+  //console.log(req.params.post);
 
 });
 
