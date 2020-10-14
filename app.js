@@ -51,7 +51,17 @@ app.post("/compose", (req, res) => {
     res.redirect("/");
 });
 
+app.get("/posts/:post",(req,res)=>{
+  posts.forEach(post => {
+    if(post.title ===req.params.post)
+    {console.log("correct")}
+    else{
+      console.log(inccorrect)
+    } 
+  });
+  console.log(req.params.post);
 
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
