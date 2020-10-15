@@ -1,5 +1,6 @@
 //jshint esversion:6
 
+const _ = require('lodash');
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -17,11 +18,6 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
-
-function xxx(){
- 
-}
 
 app.get("/",(req,res)=>{
 res.render("home",{"homeStartingContent":homeStartingContent,"posts":posts});
@@ -53,7 +49,8 @@ app.post("/compose", (req, res) => {
 
 app.get("/posts/:post",(req,res)=>{
   posts.forEach(post => {
-    if(post.title ===req.params.post)
+    
+    if( _.lowerCase(post.title) === _.lowerCase(req.params.post))
     {console.log("correct")}
     else{
       console.log("inccorrect")
