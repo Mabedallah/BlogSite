@@ -51,10 +51,11 @@ app.get("/posts/:post",(req,res)=>{
   posts.forEach(post => {
     
     if( _.lowerCase(post.title) === _.lowerCase(req.params.post))
-    {console.log("correct")}
-    else{
-      console.log("inccorrect")
-    } 
+    {
+      console.log("correct");
+      res.render("post",{postTitle:post.title,postContent:post.content});
+    }
+    
   });
   //console.log(req.params.post);
 
